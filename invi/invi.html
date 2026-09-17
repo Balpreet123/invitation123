@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+    
+    <!-- Importing Authentic Love Fonts & Elegant Serif Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- ALL CSS -->
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fdfbf7; 
+            color: #333;
+            overflow-x: hidden; 
+        }
+
+        #invitation-container {
+            width: 100%;
+            background-color: #ffffff;
+        }
+
+        /* --- HOME PAGE STYLES --- */
+        #home-page {
+            position: relative;
+            height: 100vh; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("back1.png"); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3); 
+            z-index: 1;
+        }
+
+        #home-page::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; 
+            left: 0;
+            width: 100%;
+            height: 180px; 
+            background: linear-gradient(to bottom, rgba(253, 251, 247, 0) 0%, rgba(253, 251, 247, 1) 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        #tap-here-btn {
+            position: relative;
+            z-index: 3; 
+            font-family: 'Dancing Script', cursive; 
+            font-size: 3rem; 
+            color: #ffffff;
+            background-color: transparent;
+            border: 3px solid #ffffff;
+            padding: 15px 40px;
+            border-radius: 50px;
+            cursor: pointer;
+            backdrop-filter: blur(4px); 
+            transition: transform 0.2s ease, background-color 0.3s;
+        }
+
+        #tap-here-btn:active {
+            transform: scale(0.95);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* --- SECOND PAGE STYLES --- */
+        #second-page {
+            position: relative;
+            min-height: 100vh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url("back2.png"); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;
+            overflow: hidden; 
+            padding: 40px 20px;
+        }
+
+        #second-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(to bottom, rgba(253, 251, 247, 1) 0%, rgba(253, 251, 247, 0) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        #second-page::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; 
+            left: 0;
+            width: 100%;
+            height: 180px; 
+            background: linear-gradient(to bottom, rgba(253, 251, 247, 0) 0%, rgba(253, 251, 247, 1) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .details-card {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1.5s ease 0.2s, transform 1.5s ease 0.2s; 
+        }
+
+        #second-page.animate .details-card {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .intro-text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: #5a0c1a; 
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .person-details h3 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            color: #5a0c1a;
+            font-weight: normal;
+            margin-bottom: 5px;
+        }
+
+        .person-details .parents {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #444;
+            margin-bottom: 8px;
+        }
+
+        .person-details .credentials {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            font-weight: 600; 
+            color: #5a0c1a; 
+            letter-spacing: 0.5px;
+            line-height: 1.5;
+        }
+
+        .ampersand {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            color: #5a0c1a;
+            margin: 15px 0;
+        }
+
+        #surprise-btn {
+            position: relative;
+            z-index: 3;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #5a0c1a;
+            background-color: rgba(255, 255, 255, 0.85);
+            border: 2px solid #5a0c1a;
+            padding: 10px 35px;
+            border-radius: 30px;
+            margin-top: 35px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1.5s ease 0.6s, transform 1.5s ease 0.6s, background-color 0.3s, color 0.3s;
+        }
+
+        #second-page.animate #surprise-btn {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #surprise-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* --- THIRD PAGE STYLES --- */
+        #third-page {
+            position: relative;
+            min-height: 100vh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url("back3.png"); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;
+            overflow: hidden; 
+        }
+
+        #third-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(to bottom, rgba(253, 251, 247, 1) 0%, rgba(253, 251, 247, 0) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        #third-page::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; 
+            left: 0;
+            width: 100%;
+            height: 250px; 
+            background: linear-gradient(to bottom, rgba(35, 35, 40, 0) 0%, rgba(35, 35, 40, 1) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        #blurry-btn {
+            position: relative;
+            z-index: 3;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.15); 
+            backdrop-filter: blur(12px); 
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            padding: 15px 45px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); 
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        #blurry-btn:active {
+            transform: scale(0.95);
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+
+        /* --- FOURTH PAGE STYLES --- */
+        #fourth-page {
+            position: relative;
+            min-height: 100vh;
+            height: auto; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url("back4.png"); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;
+            padding: 60px 20px; 
+        }
+
+        .dark-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(35, 35, 40, 0.65); 
+            z-index: 1;
+        }
+
+        #fourth-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(to bottom, rgba(35, 35, 40, 1) 0%, rgba(35, 35, 40, 0) 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        #fourth-page::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; 
+            left: 0;
+            width: 100%;
+            height: 180px; 
+            background: linear-gradient(to bottom, rgba(25, 25, 30, 0) 0%, rgba(20, 20, 25, 1) 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .fourth-page-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: #ffffff;
+            width: 100%;
+            max-width: 600px;
+            padding-bottom: 30px;
+        }
+
+        .fourth-page-content h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+            margin-bottom: 25px;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .time-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            text-align: center;
+            min-width: 75px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .time-box span {
+            font-size: 2rem;
+            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+            display: block;
+        }
+
+        .time-box p {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        .events-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .event-card {
+            background: rgba(20, 20, 25, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #d4af37; 
+            text-align: left;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+        }
+
+        #fourth-page.animate .event-card {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .event-card h3 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.4rem;
+            color: #d4af37; 
+            margin-bottom: 5px;
+        }
+
+        .event-card .event-date {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .event-card .event-desc {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #fdfbf7;
+        }
+
+        #venue-scroll-btn {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: #ffffff;
+            background-color: transparent;
+            border: 2px solid #ffffff;
+            padding: 10px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        /* --- FIFTH PAGE STYLES (Venue Page) --- */
+        #fifth-page {
+            position: relative;
+            min-height: 100vh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url("back5.png"); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;
+            padding: 40px 20px;
+            overflow: hidden;
+        }
+
+        .venue-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(20, 20, 25, 0.55); 
+            z-index: 1;
+        }
+
+        #fifth-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(to bottom, rgba(20, 20, 25, 1) 0%, rgba(20, 20, 25, 0) 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        #fifth-page::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; 
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(to bottom, rgba(255, 248, 245, 0) 0%, rgba(255, 248, 245, 1) 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .venue-card {
+            position: relative;
+            z-index: 3;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px 20px;
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            color: #ffffff;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+
+        #fifth-page.animate .venue-card {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .venue-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 10px;
+        }
+
+        .venue-card h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            color: #ffffff;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .venue-address {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .venue-tagline {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #d4af37;
+            margin-bottom: 35px;
+        }
+
+        .maps-btn {
+            display: inline-block;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #5a0c1a;
+            background-color: #ffffff;
+            text-decoration: none;
+            padding: 15px 25px;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .maps-btn:active {
+            transform: scale(0.95);
+        }
+
+        #rsvp-scroll-btn {
+            position: relative;
+            z-index: 3;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: #ffffff;
+            background-color: transparent;
+            border: 2px solid #ffffff;
+            padding: 10px 30px;
+            border-radius: 30px;
+            margin-top: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        /* --- SIXTH PAGE STYLES (RSVP & Kids Message) --- */
+        #sixth-page {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: #fff8f5; 
+            padding: 60px 20px 80px 20px;
+            overflow: hidden;
+        }
+
+        .rsvp-container {
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .rsvp-header {
+            margin-bottom: 30px;
+        }
+
+        .rsvp-header svg {
+            width: 40px;
+            height: 40px;
+            fill: #5a0c1a; 
+            margin-bottom: 10px;
+        }
+
+        .rsvp-header h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4rem;
+            color: #5a0c1a;
+            font-weight: normal;
+        }
+
+        .rsvp-form {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            gap: 15px;
+        }
+
+        .rsvp-form label {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #5a0c1a;
+            margin-bottom: -5px;
+        }
+
+        /* --- UPDATED RSVP INPUT STYLING --- */
+        .rsvp-form input,
+        .rsvp-form select,
+        .rsvp-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e0d4d4;
+            border-radius: 5px;
+            font-family: 'Playfair Display', serif; /* Elegant font added here */
+            font-size: 1.1rem;
+            background-color: #ffffff;
+            color: #5a0c1a; /* Royal burgundy color for the typed text */
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        /* Making the placeholder text elegant and italicized */
+        .rsvp-form input::placeholder,
+        .rsvp-form textarea::placeholder {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #a09090; /* Soft greyish pink */
+        }
+
+        .rsvp-form input:focus,
+        .rsvp-form select:focus,
+        .rsvp-form textarea:focus {
+            border-color: #5a0c1a;
+            box-shadow: 0 0 5px rgba(90, 12, 26, 0.2);
+        }
+
+        .rsvp-submit {
+            background-color: #5a0c1a;
+            color: #ffffff;
+            border: none;
+            padding: 15px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .rsvp-submit:active {
+            transform: scale(0.98);
+        }
+
+        /* Kids Message Section */
+        .kids-section {
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            border-top: 1px solid #e0d4d4;
+            padding-top: 30px;
+        }
+
+        #important-msg-btn {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: #5a0c1a;
+            background-color: #ffffff;
+            border: 2px solid #5a0c1a;
+            padding: 10px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        #important-msg-btn:active {
+            transform: scale(0.95);
+        }
+
+        #important-msg-btn:hover {
+            background-color: #5a0c1a;
+            color: #ffffff;
+        }
+
+        .kids-messages {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 25px;
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            transition: all 0.5s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+
+        .kids-messages.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+            max-height: 500px; 
+        }
+
+        .bubble {
+            position: relative;
+            max-width: 80%;
+            padding: 15px 20px;
+            border-radius: 20px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.6rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .bubble span {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        .bubble.left {
+            align-self: flex-start;
+            background-color: #ffffff;
+            color: #5a0c1a;
+            border: 2px solid #5a0c1a;
+            border-bottom-left-radius: 0; 
+            text-align: left;
+        }
+
+        .bubble.right {
+            align-self: flex-end;
+            background-color: #5a0c1a;
+            color: #ffffff;
+            border-bottom-right-radius: 0; 
+            text-align: right;
+        }
+        
+        .bubble.right span {
+            color: #fdfbf7;
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            #tap-here-btn { font-size: 4.5rem; }
+            .rsvp-header h2 { font-size: 5rem; }
+            .rsvp-form label { font-size: 1.1rem; }
+            .rsvp-form input, .rsvp-form select, .rsvp-form textarea { font-size: 1.2rem; padding: 15px; }
+            .bubble { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <main id="invitation-container">
+        
+        <!-- FIRST PAGE -->
+        <section id="home-page">
+            <div class="overlay"></div>
+            <button id="tap-here-btn">Tap Here</button>
+        </section>
+
+        <!-- SECOND PAGE -->
+        <section id="second-page">
+            <div class="details-card">
+                <p class="intro-text">We are honored to welcome you<br>to the Wedding Ceremony of</p>
+                <div class="formal-names">
+                    <div class="person-details">
+                        <h3>Balpreet Singh</h3>
+                        <p class="parents">Son of Mr. & Mrs. Balvir Singh</p>
+                        <p class="credentials">BCA, MCA, Pursuing Ph.D.<br>Teaching Assistant</p>
+                    </div>
+                    <div class="ampersand">&</div>
+                    <div class="person-details">
+                        <h3>Amrit Paul</h3>
+                        <p class="parents">Daughter of Mr. & Mrs. Inderjit Paul</p>
+                        <p class="credentials">MBA, Australia</p>
+                    </div>
+                </div>
+            </div>
+            <button id="surprise-btn">Click for Surprise ♥</button>
+        </section>
+
+        <!-- THIRD PAGE -->
+        <section id="third-page">
+            <button id="blurry-btn">Save the Dates ♥</button>
+        </section>
+
+        <!-- FOURTH PAGE -->
+        <section id="fourth-page">
+            <div class="dark-overlay"></div>
+            <div class="fourth-page-content">
+                <h2>Counting Down to Forever</h2>
+                
+                <div class="countdown">
+                    <div class="time-box">
+                        <span id="days">00</span>
+                        <p>Days</p>
+                    </div>
+                    <div class="time-box">
+                        <span id="hours">00</span>
+                        <p>Hours</p>
+                    </div>
+                    <div class="time-box">
+                        <span id="minutes">00</span>
+                        <p>Minutes</p>
+                    </div>
+                    <div class="time-box">
+                        <span id="seconds">00</span>
+                        <p>Seconds</p>
+                    </div>
+                </div>
+
+                <div class="events-timeline">
+                    <div class="event-card">
+                        <h3>Jaggo Ceremony</h3>
+                        <p class="event-date">18 November 2026</p>
+                        <p class="event-desc">Join us as we begin the wedding celebrations with the joyful Jaggo Ceremony.</p>
+                    </div>
+                    <div class="event-card">
+                        <h3>Wedding Ceremony</h3>
+                        <p class="event-date">20 November 2026</p>
+                        <p class="event-desc">Your gracious presence is requested as we celebrate our union with love and blessings. ♥</p>
+                    </div>
+                    <div class="event-card">
+                        <h3>Reception</h3>
+                        <p class="event-date">21 November 2026 · 12:00 PM onwards</p>
+                        <p class="event-desc">Your gracious presence is requested at the Reception as we celebrate together with family and friends.</p>
+                    </div>
+                </div>
+                
+                <button id="venue-scroll-btn">View Venue Details ♥</button>
+
+            </div>
+        </section>
+
+        <!-- FIFTH PAGE (Venue) -->
+        <section id="fifth-page">
+            <div class="venue-overlay"></div>
+            <div class="venue-card">
+                <p class="venue-subtitle">Venue</p>
+                <h2>The London Dreams</h2>
+                <p class="venue-address">Palahi Road, Phagwara</p>
+                <p class="venue-tagline">"Where Dreams Come True"</p>
+                
+                <a href="https://www.google.com/maps/search/?api=1&query=The+London+Dreams,+Palahi+Road,+Phagwara" target="_blank" class="maps-btn">
+                    Follow this path to begin our forever destiny ♥
+                </a>
+            </div>
+
+            <!-- Scroll to RSVP -->
+            <button id="rsvp-scroll-btn">RSVP & More ♥</button>
+        </section>
+
+        <!-- SIXTH PAGE (RSVP & Kids Message) -->
+        <section id="sixth-page">
+            
+            <!-- RSVP Form Container -->
+            <div class="rsvp-container">
+                <div class="rsvp-header">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/>
+                    </svg>
+                    <h2>RSVP</h2>
+                </div>
+
+                <form class="rsvp-form" onsubmit="event.preventDefault(); alert('RSVP functionality would go here!');">
+                    <label>Your Name *</label>
+                    <input type="text" placeholder="Your full name" required>
+
+                    <label>Email *</label>
+                    <input type="email" placeholder="you@example.com" required>
+
+                    <label>Will you be attending? *</label>
+                    <select required>
+                        <option value="" disabled selected>Select...</option>
+                        <option value="yes">Joyfully Accept</option>
+                        <option value="no">Regretfully Decline</option>
+                    </select>
+
+                    <label>Your Message</label>
+                    <textarea placeholder="Write your wishes..." rows="4"></textarea>
+
+                    <button type="submit" class="rsvp-submit">Send Message</button>
+                </form>
+            </div>
+
+            <!-- Kids Important Message Section -->
+            <div class="kids-section">
+                <button id="important-msg-btn" type="button">Important Message ♥</button>
+                
+                <div id="kids-messages-container" class="kids-messages">
+                    <!-- Left Bubble (Narya) -->
+                    <div class="bubble left">
+                        "Meri masi ki shadi me jrur ana"
+                        <span>- Narya</span>
+                    </div>
+
+                    <!-- Right Bubble (Mannu & Shindu) -->
+                    <div class="bubble right">
+                        "Mele chachu ki shadi me jrur ana"
+                        <span>- Mannu & Shindu</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        
+    </main>
+
+    <!-- ALL JAVASCRIPT -->
+    <script>
+        // Reusable Smooth Scroll Function
+        function smoothScrollTo(targetId, duration) {
+            const target = document.getElementById(targetId);
+            const targetPosition = target.getBoundingClientRect().top;
+            const startPosition = window.pageYOffset;
+            let startTime = null;
+
+            function smoothScroll(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                
+                const progress = Math.min(timeElapsed / duration, 1);
+                const ease = progress < 0.5 
+                    ? 2 * progress * progress 
+                    : -1 + (4 - 2 * progress) * progress;
+                
+                window.scrollTo(0, startPosition + (targetPosition * ease));
+                
+                if (timeElapsed < duration) {
+                    requestAnimationFrame(smoothScroll);
+                }
+            }
+            requestAnimationFrame(smoothScroll);
+        }
+
+        // Button Scroll Listeners
+        document.getElementById("tap-here-btn").addEventListener("click", function() { smoothScrollTo("second-page", 1800); });
+        document.getElementById("surprise-btn").addEventListener("click", function() { smoothScrollTo("third-page", 1800); });
+        document.getElementById("blurry-btn").addEventListener("click", function() { smoothScrollTo("fourth-page", 1800); });
+        document.getElementById("venue-scroll-btn").addEventListener("click", function() { smoothScrollTo("fifth-page", 1800); });
+        document.getElementById("rsvp-scroll-btn").addEventListener("click", function() { smoothScrollTo("sixth-page", 1800); });
+
+        // Toggle Kids Messages
+        document.getElementById("important-msg-btn").addEventListener("click", function() {
+            const container = document.getElementById("kids-messages-container");
+            container.classList.toggle("show");
+            
+            if(container.classList.contains("show")) {
+                setTimeout(() => {
+                    container.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                }, 300);
+            }
+        });
+
+        // Countdown Timer Logic
+        const weddingDate = new Date("November 20, 2026 00:00:00").getTime();
+        const countdownTimer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+            
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+                return;
+            }
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+        }, 1000);
+
+        // Animation trigger for details, events, and venue cards
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                } else {
+                    entry.target.classList.remove('animate'); 
+                }
+            });
+        }, { threshold: 0.15 });
+
+        observer.observe(document.getElementById('second-page'));
+        observer.observe(document.getElementById('fourth-page'));
+        observer.observe(document.getElementById('fifth-page'));
+    </script>
+</body>
+</html>
